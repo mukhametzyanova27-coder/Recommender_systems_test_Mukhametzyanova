@@ -1,0 +1,35 @@
+{
+ "python": "3.10.14 (main, May  6 2024, 19:42:50) [GCC 11.2.0]",
+ "platform": "Linux-6.8.0-83-generic-x86_64-with-glibc2.39",
+ "machine": "x86_64",
+ "cpu_count": 128,
+ "packages": {
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "scipy": "1.15.3",
+  "scikit-learn": "1.7.2",
+  "implicit": "0.7.3",
+  "kagglehub": "1.0.2",
+  "pyarrow": "25.0.1",
+  "matplotlib": "3.10.9",
+  "tabulate": "0.10.0",
+  "threadpoolctl": "3.7.0"
+ },
+ "seeds": {
+  "global (config.SEED)": 42,
+  "implicit ALS random_state": 42,
+  "bootstrap numpy rng": 42
+ },
+ "threads": {
+  "OPENBLAS_NUM_THREADS": "1 (set inside scripts 03/04)",
+  "implicit ALS num_threads": 8
+ },
+ "data_source": "kagglehub.competition_download('sweettv-tv-program-recommender') or $SWEETTV_DATA_DIR",
+ "blas": [
+  {
+   "internal_api": "openblas",
+   "version": "0.3.29",
+   "num_threads": 64
+  }
+ ]
+}

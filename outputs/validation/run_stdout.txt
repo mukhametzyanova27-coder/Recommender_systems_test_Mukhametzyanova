@@ -1,0 +1,124 @@
+{'train_rule': 'any60', 'holdout_rule': 'any60', 'eval_users': 1246, 'mean_truth_size': np.float64(184.35393258426967), 'popularity': 0.8062225789192081, 'content_ref': 0.05642322097378278, 'als_ref': 0.7950615302300696}
+{'train_rule': 'abs300', 'holdout_rule': 'any60', 'eval_users': 1246, 'mean_truth_size': np.float64(184.35393258426967), 'popularity': 0.8062225789192081, 'content_ref': 0.0914446227929374, 'als_ref': 0.8275120385232744}
+{'train_rule': 'frac50', 'holdout_rule': 'any60', 'eval_users': 1246, 'mean_truth_size': np.float64(184.35393258426967), 'popularity': 0.7675735687533439, 'content_ref': 0.2513723916532905, 'als_ref': 0.7916907437132156}
+{'train_rule': 'any60', 'holdout_rule': 'abs300', 'eval_users': 1246, 'mean_truth_size': np.float64(130.14606741573033), 'popularity': 0.7381166399143927, 'content_ref': 0.04382022471910112, 'als_ref': 0.7204333868378813}
+{'train_rule': 'abs300', 'holdout_rule': 'abs300', 'eval_users': 1246, 'mean_truth_size': np.float64(130.14606741573033), 'popularity': 0.7381166399143927, 'content_ref': 0.07319422150882825, 'als_ref': 0.7731674692348849}
+{'train_rule': 'frac50', 'holdout_rule': 'abs300', 'eval_users': 1246, 'mean_truth_size': np.float64(130.14606741573033), 'popularity': 0.69848582129481, 'content_ref': 0.21266541822721596, 'als_ref': 0.7427233814874263}
+{'train_rule': 'any60', 'holdout_rule': 'frac50', 'eval_users': 1244, 'mean_truth_size': np.float64(53.180868167202576), 'popularity': 0.5510075026795285, 'content_ref': 0.020771704180064313, 'als_ref': 0.49924772240085735}
+{'train_rule': 'abs300', 'holdout_rule': 'frac50', 'eval_users': 1244, 'mean_truth_size': np.float64(53.180868167202576), 'popularity': 0.5510075026795285, 'content_ref': 0.03281886387995713, 'als_ref': 0.580514469453376}
+{'train_rule': 'frac50', 'holdout_rule': 'frac50', 'eval_users': 1244, 'mean_truth_size': np.float64(53.180868167202576), 'popularity': 0.5862788049303322, 'content_ref': 0.13042336548767416, 'als_ref': 0.6494158628081458}
+train rule chosen: frac50 {'any60': 0.35700897642015006, 'abs300': 0.38811361200428723, 'frac50': 0.45537267774205076}
+eval users (test users with non-empty holdout): 1244 all users: 4729
+        method  allow_repeats      map5        se
+0   popularity           True  0.586279  0.009443
+1   popularity          False  0.142992  0.005267
+2  content_ref           True  0.130423  0.004935
+3  content_ref          False  0.034693  0.002380
+4      als_ref           True  0.649416  0.009067
+5      als_ref          False  0.182820  0.005950 
+share of holdout shows already watched in train: 0.24468127077105126
+  recent_weeks      map5        se
+0            1  0.586279  0.009443
+1            2  0.586279  0.009443
+2            4  0.564473  0.009119
+3     all (10)  0.539687  0.008720
+         field_set weighting  half_life_weeks  ...        se   fit_sec  predict_sec
+147    people_only     count              1.0  ...  0.006751  0.252677     0.381791
+127  people_xheavy     count              1.0  ...  0.006780  0.263539     0.361006
+67    people_heavy     count              1.0  ...  0.006798  0.168665     0.338275
+148    people_only     count              2.0  ...  0.006808  0.261081     0.343694
+128  people_xheavy     count              2.0  ...  0.006796  0.163734     0.333492
+146    people_only     count              0.5  ...  0.006852  0.177939     0.342790
+126  people_xheavy     count              0.5  ...  0.006832  0.258461     0.325427
+68    people_heavy     count              2.0  ...  0.006823  0.275673     0.338049
+66    people_heavy     count              0.5  ...  0.006939  0.276959     0.332104
+149    people_only     count              4.0  ...  0.006765  0.231444     0.340506
+
+[10 rows x 7 columns]
+     factors  regularization  alpha  ...        se   fit_sec  predict_sec
+775      256             3.0    0.1  ...  0.008978  0.763999     0.749633
+295       64             3.0    0.1  ...  0.008974  0.564878     0.070076
+535      128             3.0    0.1  ...  0.008991  0.594790     0.130574
+294       64             3.0    0.1  ...  0.008994  0.557293     0.069065
+534      128             3.0    0.1  ...  0.008988  0.606540     0.101031
+773      256             3.0    0.1  ...  0.009071  0.736905     0.285755
+774      256             3.0    0.1  ...  0.008979  0.754213     0.820395
+533      128             3.0    0.1  ...  0.009074  0.579466     0.188127
+293       64             3.0    0.1  ...  0.009061  0.565643     0.065661
+594      128            10.0    0.3  ...  0.008963  0.667690     0.074496
+
+[10 rows x 10 columns]     factors  regularization  alpha  ...        se   fit_sec  predict_sec
+93      256             3.0    0.1  ...  0.008977  0.757788     0.081342
+21       64             3.0    0.1  ...  0.008974  0.519123     0.072057
+57      128             3.0    0.1  ...  0.008989  0.567660     0.086023
+20       64             3.0    0.1  ...  0.008983  0.537889     0.066238
+92      256             3.0    0.1  ...  0.008991  0.769415     0.220795
+56      128             3.0    0.1  ...  0.008989  0.569911     0.067708
+81      256             1.8    0.1  ...  0.009015  0.774653     0.075853
+45      128             1.8    0.1  ...  0.009020  0.551469     0.073266
+80      256             1.8    0.1  ...  0.009019  0.749720     0.081284
+82      256             1.8    0.1  ...  0.009032  0.745571     0.079700
+
+[10 rows x 10 columns]     factors  regularization  alpha  ...        se   fit_sec  predict_sec
+4        64             3.0    0.1  ...  0.008997  1.062405     0.104070
+1       256             3.0    0.1  ...  0.008973  1.600770     0.085521
+14      128             3.0    0.1  ...  0.008976  1.888636     0.074576
+0       256             3.0    0.1  ...  0.008978  0.790676     0.084181
+2       256             3.0    0.1  ...  0.008975  2.752132     0.085382
+
+[5 rows x 10 columns]
+    fusion  w_als      map5        se
+8   minmax    0.8  0.659697  0.009045
+9   minmax    0.9  0.659394  0.009007
+21     rrf    1.0  0.658017  0.008997
+10  minmax    1.0  0.658017  0.008997
+7   minmax    0.7  0.656257  0.009067
+20     rrf    0.9  0.655860  0.009075
+6   minmax    0.6  0.652318  0.009066
+19     rrf    0.8  0.650635  0.009135
+18     rrf    0.7  0.643820  0.009152
+5   minmax    0.5  0.641549  0.009062
+                             method                                                                                                                                                                                                                                                                                                                    params   fit_sec  map5_test   se_test  users  model_filled_5  model_filled_partly  fallback_only  predict_sec_test_users  map5_other  se_other  map5_all    se_all  diff_vs_pop_test diff_vs_pop_test_ci95  diff_vs_pop_other diff_vs_pop_other_ci95
+0               Popularity baseline                                                                                                                                                                                                                                                                                                       {"recent_weeks": 1}  0.000000   0.586279  0.009443   1244               0                    0           1244                0.004918    0.469110  0.005835  0.499932  0.005022          0.000000      [0.0000, 0.0000]           0.000000       [0.0000, 0.0000]
+1  Method 1: Content-based (TF-IDF)                                                                                                                                                                              {"field_weights": {"category": 0.25, "genre": 0.25, "year": 0.25, "director": 2, "actors": 2}, "weighting": "count", "half_life_weeks": 1.0}  0.329655   0.370374  0.006751   1244            1233                    0             11                0.338747    0.307727  0.004213  0.324207  0.003599         -0.215905    [-0.2304, -0.2001]          -0.161383     [-0.1706, -0.1521]
+2          Method 2: ALS (implicit)                                                                                                                                                                                                      {"factors": 64, "regularization": 3.0, "alpha": 0.1, "iterations": 30, "weighting": "count", "half_life_weeks": 4.0}  1.211497   0.658017  0.008997   1244            1233                    0             11                0.074088    0.538150  0.005828  0.569682  0.004963          0.071738      [0.0600, 0.0846]           0.069040       [0.0614, 0.0770]
+3           Hybrid: ALS + CB fusion  {"fusion": "minmax", "w_als": 0.8, "als": {"factors": 64, "regularization": 3.0, "alpha": 0.1, "iterations": 30, "weighting": "count", "half_life_weeks": 4.0}, "content": {"field_weights": {"category": 0.25, "genre": 0.25, "year": 0.25, "director": 2, "actors": 2}, "weighting": "count", "half_life_weeks": 1.0}}  1.541152   0.659697  0.009045   1244            1233                    0             11                0.487892    0.540889  0.005881  0.572143  0.005002          0.073418      [0.0620, 0.0856]           0.071780       [0.0642, 0.0796]
+hybrid vs best single: {'test': (np.float64(0.001680064308681672), np.float64(-0.002556872990353698), np.float64(0.005956658628081458)), 'other': (np.float64(0.0027391200382592064), np.float64(0.00027647258090227945), np.float64(0.005227177985015145))}
+{
+ "seed": 42,
+ "train_rule": "frac50",
+ "holdout_rule": "frac50",
+ "allow_repeats": true,
+ "pool": "labeled shows with >=1 airing starting in the target window",
+ "fallback": "popularity, distinct users in the last 1 training weeks (ties: whole period)",
+ "pop_recent_weeks": 1,
+ "content": {
+  "field_weights": {
+   "category": 0.25,
+   "genre": 0.25,
+   "year": 0.25,
+   "director": 2,
+   "actors": 2
+  },
+  "weighting": "count",
+  "half_life_weeks": 1.0
+ },
+ "als": {
+  "factors": 64,
+  "regularization": 3.0,
+  "alpha": 0.1,
+  "iterations": 30,
+  "weighting": "count",
+  "half_life_weeks": 4.0
+ },
+ "hybrid": {
+  "fusion": "minmax",
+  "w_als": 0.8
+ },
+ "final_strategy": "hybrid",
+ "eval_users_test": 1244,
+ "eval_users_other": 3485,
+ "eval_users_all": 4729,
+ "test_users_cold_in_validation": 11,
+ "share_holdout_truth_seen_in_train": 0.24468127077105126
+}

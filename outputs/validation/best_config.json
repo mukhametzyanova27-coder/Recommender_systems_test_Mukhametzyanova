@@ -1,0 +1,38 @@
+{
+ "seed": 42,
+ "train_rule": "frac50",
+ "holdout_rule": "frac50",
+ "allow_repeats": true,
+ "pool": "labeled shows with >=1 airing starting in the target window",
+ "fallback": "popularity, distinct users in the last 1 training weeks (ties: whole period)",
+ "pop_recent_weeks": 1,
+ "content": {
+  "field_weights": {
+   "category": 0.25,
+   "genre": 0.25,
+   "year": 0.25,
+   "director": 2,
+   "actors": 2
+  },
+  "weighting": "count",
+  "half_life_weeks": 1.0
+ },
+ "als": {
+  "factors": 64,
+  "regularization": 3.0,
+  "alpha": 0.1,
+  "iterations": 30,
+  "weighting": "count",
+  "half_life_weeks": 4.0
+ },
+ "hybrid": {
+  "fusion": "minmax",
+  "w_als": 0.8
+ },
+ "final_strategy": "hybrid",
+ "eval_users_test": 1244,
+ "eval_users_other": 3485,
+ "eval_users_all": 4729,
+ "test_users_cold_in_validation": 11,
+ "share_holdout_truth_seen_in_train": 0.24468127077105126
+}

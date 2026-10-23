@@ -1,0 +1,29 @@
+{
+ "valid_train": {
+  "views": 3945162,
+  "view_hours": 1368088.1280555555,
+  "view_hours_on_channels_in_schedule": 1349729.4533333334,
+  "share_of_mapped_view_time_on_labeled_airings": 0.5046118174408661,
+  "user_airing_pairs_labeled": 1823865,
+  "users_with_any_labeled_overlap": 4841,
+  "join_seconds": 8.5
+ },
+ "valid_holdout": {
+  "views": 1877815,
+  "view_hours": 1026252.8202777777,
+  "view_hours_on_channels_in_schedule": 1012300.6058333333,
+  "share_of_mapped_view_time_on_labeled_airings": 0.5826452443968965,
+  "user_airing_pairs_labeled": 1191015,
+  "users_with_any_labeled_overlap": 4806,
+  "join_seconds": 1.8
+ },
+ "final_train": {
+  "views": 5821970,
+  "view_hours": 2394340.9483333332,
+  "view_hours_on_channels_in_schedule": 2362030.0591666666,
+  "share_of_mapped_view_time_on_labeled_airings": 0.5380547810798259,
+  "user_airing_pairs_labeled": 3014129,
+  "users_with_any_labeled_overlap": 4895,
+  "join_seconds": 8.4
+ }
+}

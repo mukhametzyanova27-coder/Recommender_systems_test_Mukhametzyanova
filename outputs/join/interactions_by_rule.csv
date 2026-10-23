@@ -1,0 +1,10 @@
+period,rule,user_airing_watched,user_show_pairs,users,shows,median_shows_per_user
+valid_train,any60,1773550,842236,4841,2972,154.0
+valid_train,abs300,1224337,573104,4833,2901,105.0
+valid_train,frac50,517124,199627,4789,2705,36.0
+valid_holdout,any60,1165293,650295,4806,3229,110.0
+valid_holdout,abs300,855477,474162,4799,3160,80.0
+valid_holdout,frac50,423123,210154,4729,3001,30.0
+final_train,any60,2938125,1350444,4895,4362,245.0
+final_train,abs300,2079169,949556,4890,4276,171.0
+final_train,frac50,940356,368702,4871,4071,58.0

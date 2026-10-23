@@ -1,0 +1,50 @@
+valid_train {'views': 3945162, 'view_hours': 1368088.1280555555, 'view_hours_on_channels_in_schedule': 1349729.4533333334, 'share_of_mapped_view_time_on_labeled_airings': 0.5046118174408661, 'user_airing_pairs_labeled': 1823865, 'users_with_any_labeled_overlap': 4841, 'join_seconds': 8.5}
+valid_holdout {'views': 1877815, 'view_hours': 1026252.8202777777, 'view_hours_on_channels_in_schedule': 1012300.6058333333, 'share_of_mapped_view_time_on_labeled_airings': 0.5826452443968965, 'user_airing_pairs_labeled': 1191015, 'users_with_any_labeled_overlap': 4806, 'join_seconds': 1.8}
+final_train {'views': 5821970, 'view_hours': 2394340.9483333332, 'view_hours_on_channels_in_schedule': 2362030.0591666666, 'share_of_mapped_view_time_on_labeled_airings': 0.5380547810798259, 'user_airing_pairs_labeled': 3014129, 'users_with_any_labeled_overlap': 4895, 'join_seconds': 8.4}
+      overlap_sec      frac
+0.05         67.0  0.010317
+0.10         86.0  0.015000
+0.25        197.0  0.040952
+0.50        624.0  0.172963
+0.75       1779.0  0.580278
+0.90       3600.0  1.000000
+0.95       5100.0  1.000000
+frac
+(-0.001, 0.05]    0.283055
+(0.05, 0.1]       0.117723
+(0.1, 0.25]       0.170587
+(0.25, 0.5]       0.145263
+(0.5, 0.75]       0.092715
+(0.75, 0.9]       0.045226
+(0.9, 0.999]      0.031899
+(0.999, 1.0]      0.113531
+                 pairs  median_frac  share_frac_ge_50  share_overlap_ge_300  median_airing_min
+category                                                                                      
+Детям           182438        0.688             0.577                 0.717               20.0
+Другое           22400        0.264             0.330                 0.630               30.0
+Инфо            310980        0.434             0.461                 0.747               40.0
+Познавательное  122356        0.124             0.197                 0.664              100.0
+Развлечения     341343        0.156             0.248                 0.680              100.0
+Сериалы         196103        0.148             0.258                 0.655               75.0
+Фильмы          648245        0.083             0.157                 0.625              115.0
+frac50   False   True 
+abs300                
+False   0.3237  0.0050
+True    0.3928  0.2785
+             pairs  frac50  abs300  any60
+dur_bucket                               
+<=10m        94087   0.788   0.691  0.951
+10-30m      252727   0.546   0.729  0.955
+30-60m      314058   0.343   0.683  0.963
+1-2h        795821   0.192   0.654  0.979
+>2h         367172   0.121   0.654  0.984
+          period    rule  user_airing_watched  user_show_pairs  users  shows  median_shows_per_user
+0    valid_train   any60              1773550           842236   4841   2972                  154.0
+1    valid_train  abs300              1224337           573104   4833   2901                  105.0
+2    valid_train  frac50               517124           199627   4789   2705                   36.0
+3  valid_holdout   any60              1165293           650295   4806   3229                  110.0
+4  valid_holdout  abs300               855477           474162   4799   3160                   80.0
+5  valid_holdout  frac50               423123           210154   4729   3001                   30.0
+6    final_train   any60              2938125          1350444   4895   4362                  245.0
+7    final_train  abs300              2079169           949556   4890   4276                  171.0
+8    final_train  frac50               940356           368702   4871   4071                   58.0

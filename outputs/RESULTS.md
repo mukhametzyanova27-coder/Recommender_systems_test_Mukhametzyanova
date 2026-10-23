@@ -1,0 +1,156 @@
+# Results
+
+Validation: train weeks 11-20, holdout weeks 21-30; truth = shows watched by rule `frac50`. Test users = template users with non-empty holdout (1244), other users = remaining holdout users (3485), never used for choices.
+
+| method                           |   MAP@5 test users (tuning) |     SE |   MAP@5 other users (confirm) |   MAP@5 all users |   diff vs pop | 95% CI             |   fit, s |   predict, s |   model_filled_5 |   fallback_only | params                                                                                                                                                                                                                                                                                                                   |
+|:---------------------------------|----------------------------:|-------:|------------------------------:|------------------:|--------------:|:-------------------|---------:|-------------:|-----------------:|----------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Popularity baseline              |                      0.5863 | 0.0094 |                        0.4691 |            0.4999 |        0      | [0.0000, 0.0000]   |   0      |       0.0049 |                0 |            1244 | {"recent_weeks": 1}                                                                                                                                                                                                                                                                                                      |
+| Method 1: Content-based (TF-IDF) |                      0.3704 | 0.0068 |                        0.3077 |            0.3242 |       -0.2159 | [-0.2304, -0.2001] |   0.3297 |       0.3387 |             1233 |              11 | {"field_weights": {"category": 0.25, "genre": 0.25, "year": 0.25, "director": 2, "actors": 2}, "weighting": "count", "half_life_weeks": 1.0}                                                                                                                                                                             |
+| Method 2: ALS (implicit)         |                      0.658  | 0.009  |                        0.5382 |            0.5697 |        0.0717 | [0.0600, 0.0846]   |   1.2115 |       0.0741 |             1233 |              11 | {"factors": 64, "regularization": 3.0, "alpha": 0.1, "iterations": 30, "weighting": "count", "half_life_weeks": 4.0}                                                                                                                                                                                                     |
+| Hybrid: ALS + CB fusion          |                      0.6597 | 0.009  |                        0.5409 |            0.5721 |        0.0734 | [0.0620, 0.0856]   |   1.5412 |       0.4879 |             1233 |              11 | {"fusion": "minmax", "w_als": 0.8, "als": {"factors": 64, "regularization": 3.0, "alpha": 0.1, "iterations": 30, "weighting": "count", "half_life_weeks": 4.0}, "content": {"field_weights": {"category": 0.25, "genre": 0.25, "year": 0.25, "director": 2, "actors": 2}, "weighting": "count", "half_life_weeks": 1.0}} |
+
+
+Hybrid vs best single method (paired bootstrap):
+
+| comparison                                         | users   |   mean_diff |   ci95_low |   ci95_high |
+|:---------------------------------------------------|:--------|------------:|-----------:|------------:|
+| Hybrid: ALS + CB fusion - Method 2: ALS (implicit) | test    |      0.0017 |    -0.0026 |      0.006  |
+| Hybrid: ALS + CB fusion - Method 2: ALS (implicit) | other   |      0.0027 |     0.0003 |      0.0052 |
+
+
+Final strategy: **hybrid** (retrained on weeks 11-30).
+
+Chosen configuration:
+
+```json
+{
+ "seed": 42,
+ "train_rule": "frac50",
+ "holdout_rule": "frac50",
+ "allow_repeats": true,
+ "pool": "labeled shows with >=1 airing starting in the target window",
+ "fallback": "popularity, distinct users in the last 1 training weeks (ties: whole period)",
+ "pop_recent_weeks": 1,
+ "content": {
+  "field_weights": {
+   "category": 0.25,
+   "genre": 0.25,
+   "year": 0.25,
+   "director": 2,
+   "actors": 2
+  },
+  "weighting": "count",
+  "half_life_weeks": 1.0
+ },
+ "als": {
+  "factors": 64,
+  "regularization": 3.0,
+  "alpha": 0.1,
+  "iterations": 30,
+  "weighting": "count",
+  "half_life_weeks": 4.0
+ },
+ "hybrid": {
+  "fusion": "minmax",
+  "w_als": 0.8
+ },
+ "final_strategy": "hybrid",
+ "eval_users_test": 1244,
+ "eval_users_other": 3485,
+ "eval_users_all": 4729,
+ "test_users_cold_in_validation": 11,
+ "share_holdout_truth_seen_in_train": 0.24468127077105126
+}
+```
+
+Final run (weeks 11-30 -> 31-42):
+
+```json
+{
+ "train_rule": "frac50",
+ "allow_repeats": true,
+ "pool_size": 6642,
+ "timing": {
+  "content_fit_sec": 0.4082472324371338,
+  "als_fit_sec": 2.116804838180542
+ },
+ "final_strategy": "hybrid",
+ "methods": {
+  "popularity": {
+   "model_filled_5": 0,
+   "model_filled_partly": 0,
+   "fallback_only": 1260,
+   "distinct_ids_recommended": 5
+  },
+  "content": {
+   "model_filled_5": 1256,
+   "model_filled_partly": 0,
+   "fallback_only": 4,
+   "distinct_ids_recommended": 432
+  },
+  "als": {
+   "model_filled_5": 1256,
+   "model_filled_partly": 0,
+   "fallback_only": 4,
+   "distinct_ids_recommended": 93
+  },
+  "hybrid": {
+   "model_filled_5": 1256,
+   "model_filled_partly": 0,
+   "fallback_only": 4,
+   "distinct_ids_recommended": 139
+  }
+ },
+ "format_checks": {
+  "columns_match_template": true,
+  "rows": 1260,
+  "rows_match_template": true,
+  "user_order_matches_template": true,
+  "every_row_5_ids": true,
+  "every_row_unique_ids": true,
+  "all_ids_integer_nonzero": true,
+  "all_ids_in_target_window_pool": true,
+  "no_missing_values": true
+ }
+}
+```
+
+Environment:
+
+```json
+{
+ "python": "3.10.14 (main, May  6 2024, 19:42:50) [GCC 11.2.0]",
+ "platform": "Linux-6.8.0-83-generic-x86_64-with-glibc2.39",
+ "machine": "x86_64",
+ "cpu_count": 128,
+ "packages": {
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "scipy": "1.15.3",
+  "scikit-learn": "1.7.2",
+  "implicit": "0.7.3",
+  "kagglehub": "1.0.2",
+  "pyarrow": "25.0.1",
+  "matplotlib": "3.10.9",
+  "tabulate": "0.10.0",
+  "threadpoolctl": "3.7.0"
+ },
+ "seeds": {
+  "global (config.SEED)": 42,
+  "implicit ALS random_state": 42,
+  "bootstrap numpy rng": 42
+ },
+ "threads": {
+  "OPENBLAS_NUM_THREADS": "1 (set inside scripts 03/04)",
+  "implicit ALS num_threads": 8
+ },
+ "data_source": "kagglehub.competition_download('sweettv-tv-program-recommender') or $SWEETTV_DATA_DIR",
+ "blas": [
+  {
+   "internal_api": "openblas",
+   "version": "0.3.29",
+   "num_threads": 64
+  }
+ ]
+}
+```

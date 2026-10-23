@@ -1,0 +1,5 @@
+method,distinct_ids,share_slots_in_top10_popular,share_users_with_identical_list_to_popularity,share_users_ap_zero
+Popularity baseline,5,1.0,1.0,0.07234726688102894
+Method 1: Content-based (TF-IDF),392,0.3998392282958199,0.008842443729903537,0.0932475884244373
+Method 2: ALS (implicit),90,0.7414790996784566,0.014469453376205787,0.04501607717041801
+Hybrid: ALS + CB fusion,138,0.7461414790996784,0.0297427652733119,0.04581993569131833

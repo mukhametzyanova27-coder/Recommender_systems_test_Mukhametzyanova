@@ -1,0 +1,53 @@
+{
+ "train_rule": "frac50",
+ "allow_repeats": true,
+ "pool_size": 6642,
+ "timing": {
+  "content_fit_sec": 0.4082472324371338,
+  "als_fit_sec": 2.116804838180542
+ },
+ "final_strategy": "hybrid",
+ "methods": {
+  "popularity": {
+   "model_filled_5": 0,
+   "model_filled_partly": 0,
+   "fallback_only": 1260,
+   "distinct_ids_recommended": 5
+  },
+  "content": {
+   "model_filled_5": 1256,
+   "model_filled_partly": 0,
+   "fallback_only": 4,
+   "distinct_ids_recommended": 432
+  },
+  "als": {
+   "model_filled_5": 1256,
+   "model_filled_partly": 0,
+   "fallback_only": 4,
+   "distinct_ids_recommended": 93
+  },
+  "hybrid": {
+   "model_filled_5": 1256,
+   "model_filled_partly": 0,
+   "fallback_only": 4,
+   "distinct_ids_recommended": 139
+  }
+ },
+ "format_checks": {
+  "columns_match_template": true,
+  "rows": 1260,
+  "rows_match_template": true,
+  "user_order_matches_template": true,
+  "every_row_5_ids": true,
+  "every_row_unique_ids": true,
+  "all_ids_integer_nonzero": true,
+  "all_ids_in_target_window_pool": true,
+  "no_missing_values": true
+ }
+}
+               user_id                                    tv_show_id
+0  8377619604347126107          2400480 2400467 240081 2400508 20088
+1  8381667675275833309       2400480 240081 6700482 2400467 12001682
+2  8387147770138767246  12001682 12002856 12002955 12002355 12001732
+3  8397181578236218580          2400480 240081 2400467 20088 6700482
+4  8404698046253197367       2400480 240081 2400467 10002514 2400508

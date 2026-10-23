@@ -1,0 +1,16 @@
+# Clean end-to-end run (empty SWEETTV_OUTPUT_DIR, data from kagglehub cache), 2026-10-23
+# machine: 128 CPU, shared; load average 141-179 (three uptime samples during the run)
+# wall-clock seconds per step:
+01_eda rc=0 sec=115.1
+02_join rc=0 sec=37.7
+03_validate rc=0 sec=999.9
+04_final rc=0 sec=27.5
+05_examples rc=0 sec=19.5
+06_report rc=0 sec=0.6
+07_analysis rc=0 sec=53.2
+total sec=1253.5 (~20.9 min)
+# comparison with the main run (outputs/):
+submission.csv and submission_{popularity,content,als,hybrid}.csv: byte-identical
+validation/best_config.json: byte-identical
+validation A..G + results.csv: all MAP@5 / SE / CI columns identical (only timing columns differ)
+eda_summary.json, examples.md, analysis.md: byte-identical; join_stats.json identical except join_seconds

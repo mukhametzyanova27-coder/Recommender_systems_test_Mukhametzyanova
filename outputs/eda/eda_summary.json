@@ -1,0 +1,66 @@
+{
+ "log": {
+  "rows_raw": 5821987,
+  "rows_after_dedup": 5821970,
+  "exact_duplicates_removed": 17,
+  "users": 4914,
+  "vsetv_ids": 202,
+  "start_min": "2020-03-09 00:00:02",
+  "start_max": "2020-07-26 23:58:42",
+  "stop_max": "2020-07-26 23:59:58",
+  "share_duraton_equals_stop_minus_start": 0.9999799037095691,
+  "rows_where_stop_minus_start_minus_duraton_is_3600": 117,
+  "min_duraton": 61
+ },
+ "schedule_gap_share_zero": 0.9998789058314247,
+ "mapping": {
+  "vsetv_ids": 202,
+  "channel_ids": 405,
+  "ids_in_both": 197,
+  "vsetv_ids_absent_in_schedule": [
+   149,
+   1174,
+   1508,
+   1509,
+   1510
+  ],
+  "views_share_on_absent": 0.019508516876589884,
+  "time_share_on_absent": 0.013494514240891093,
+  "tested_channels": 169,
+  "identity_is_best_of_all_schedule_channels": 50,
+  "events_share_of_tested_where_identity_best": 0.7662778122176156,
+  "median_z_best_when_identity_not_best": 3.6451952531014555,
+  "max_z_best_when_identity_not_best": 23.937103660350378,
+  "identity_best_shift_min_counts_where_identity_best": {
+   "0.0": 36,
+   "-5.0": 11,
+   "-10.0": 2,
+   "5.0": 1
+  }
+ },
+ "view_share_longer_than_hours": {
+  "3": 0.022446354069155287,
+  "6": 0.0037463264152855476,
+  "12": 0.00045259594261049094,
+  "24": 8.931684635956558e-06
+ },
+ "test_users": {
+  "template_users": 1260,
+  "unique_in_template": 1260,
+  "in_log_any": 1260,
+  "in_log_weeks 11-20": 1256,
+  "in_log_weeks 21-30": 1246
+ },
+ "template": {
+  "rows": 1260,
+  "columns": [
+   "user_id",
+   "tv_show_id"
+  ],
+  "example": {
+   "user_id": "8377619604347126107",
+   "tv_show_id": "0 0 0 0 0"
+  },
+  "each_row_has_5_space_separated_ids": true
+ }
+}
